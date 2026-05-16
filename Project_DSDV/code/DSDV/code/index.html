@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Global Land Temperatures by Country</title>
+
+    <script src="https://cdn.plot.ly/plotly-2.30.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Global Land Temperatures by Country</h1>
+        <p>
+            An interactive data visualization project exploring global temperature trends,
+            country-level warming patterns, and historical climate anomalies.
+        </p>
+    </header>
+
+    <main>
+        <section class="control-panel">
+            <div class="control-box">
+                <label for="yearSlider">Selected Year:</label>
+                <input type="range" id="yearSlider" min="1880" max="2013" value="2010">
+                <span id="yearValue">2010</span>
+            </div>
+
+            <div class="control-box">
+                <label for="countrySelect">Country:</label>
+                <select id="countrySelect"></select>
+            </div>
+
+            <div class="control-box">
+                <label for="metricSelect">Map Metric:</label>
+                <select id="metricSelect">
+                    <option value="AverageTemperature">Average Temperature</option>
+                    <option value="TemperatureAnomaly">Temperature Anomaly</option>
+                </select>
+            </div>
+        </section>
+
+        <section class="stats-grid">
+            <div class="stat-card">
+                <h3>Global Average</h3>
+                <p id="globalAvg">-- °C</p>
+            </div>
+
+            <div class="stat-card">
+                <h3>Hottest Country</h3>
+                <p id="hottestCountry">--</p>
+            </div>
+
+            <div class="stat-card">
+                <h3>Coldest Country</h3>
+                <p id="coldestCountry">--</p>
+            </div>
+
+            <div class="stat-card">
+                <h3>Countries</h3>
+                <p id="countryCount">--</p>
+            </div>
+        </section>
+
+        <section class="chart-card">
+            <h2>World Temperature Map</h2>
+            <div id="mapChart"></div>
+        </section>
+
+        <section class="chart-grid">
+            <div class="chart-card">
+                <h2>Temperature Trend of Selected Country</h2>
+                <div id="lineChart"></div>
+            </div>
+
+            <div class="chart-card">
+                <h2>Top 10 Hottest Countries</h2>
+                <div id="barChart"></div>
+            </div>
+        </section>
+
+        <section class="chart-card">
+            <h2>Global Average Temperature Over Time</h2>
+            <div id="globalTrendChart"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Data source: Berkeley Earth / Kaggle Climate Change Earth Surface Temperature Data</p>
+    </footer>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>
